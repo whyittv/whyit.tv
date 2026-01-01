@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhyItTV - Context Over Hype, Relevance Over Noise</title>
-    <meta name="description" content="WhyItTV explores the history, cultural impact, and unresolved questions behind influential brands, ideas, and systems. New topic every Friday at midnight.">
+    <meta name="description" content="WhyItTV is a story-driven educational series exploring influential brands, ideas, and systems through history, cultural impact, and open questions. New topic every Friday.">
     
     <!-- Open Graph -->
     <meta property="og:title" content="WhyItTV - Context Over Hype">
-    <meta property="og:description" content="Story-driven exploration of brands, ideas, and systems that shape culture. We give you context so you can decide what to think.">
+    <meta property="og:description" content="Story-driven exploration of brands, ideas, and systems that shape culture. Understanding without telling you what to think.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://whyit.tv">
-    <meta property="og:image" content="https://whyit.tv/assets/images/og-image.jpg">
+    <meta property="og:image" content="https://whyit.tv/assets/images/brand/logo-neon.jpg">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@whyitTV">
-    <meta name="twitter:title" content="WhyItTV - Context Over Hype">
-    <meta name="twitter:description" content="Story-driven exploration of brands, ideas, and systems that shape culture.">
     
-    <!-- Schema.org structured data for LLMEO -->
+    <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,41 +31,35 @@
             "name": "WhyItTV",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://whyit.tv/assets/images/logo-neon.png"
+                "url": "https://whyit.tv/assets/images/brand/logo-neon.png"
             },
             "sameAs": [
                 "https://youtube.com/@whyitTV",
                 "https://twitter.com/whyitTV",
                 "https://tiktok.com/@whyitTV"
             ]
-        },
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://whyit.tv/topics?q={search_term_string}",
-            "query-input": "required name=search_term_string"
         }
     }
     </script>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="assets/images/logo-clean.png">
+    <link rel="icon" type="image/png" href="assets/images/brand/logo-clean.png">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
-                <img src="assets/images/logo-neon.png" alt="WhyItTV" class="nav-logo-img">
+                <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="nav-logo-img">
             </a>
             <div class="nav-links">
-                <a href="/topics" class="nav-link">Topics</a>
-                <a href="/about" class="nav-link">About</a>
-                <a href="/schedule" class="nav-link">Schedule</a>
+                <a href="/topics.html" class="nav-link">Topics</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/schedule.html" class="nav-link">Schedule</a>
             </div>
             <div class="nav-social">
                 <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
@@ -91,102 +83,103 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-bg"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
         <div class="hero-content">
-            <div class="hero-badge">New Topic Every Friday at Midnight</div>
+            <div class="hero-brand">
+                <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="hero-logo">
+            </div>
             <h1 class="hero-title">
                 <span class="hero-title-line">Context Over Hype.</span>
                 <span class="hero-title-line accent">Relevance Over Noise.</span>
             </h1>
             <p class="hero-description">
-                WhyItTV explores the history, cultural impact, and unresolved questions behind influential brands, ideas, and systems. We don't tell you what to think—we give you context so you can decide for yourself.
+                WhyItTV is a story-driven series exploring influential brands, ideas, and systems. Each topic is examined through multiple lenses—not to tell you what to think, but to give you the context to decide for yourself.
             </p>
+            <div class="hero-badge">
+                <span class="badge-pulse"></span>
+                New Topic Every Friday at Midnight
+            </div>
             <div class="hero-cta">
                 <a href="https://youtube.com/@whyitTV?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     Subscribe on YouTube
                 </a>
-                <a href="/topics" class="btn btn-secondary">Explore Topics</a>
+                <a href="/topics.html" class="btn btn-secondary">Explore Topics</a>
             </div>
         </div>
-        <div class="hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-        </div>
     </header>
+
+    <!-- The System Section -->
+    <section class="section system-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The Format System</span>
+                <h2 class="section-title">Five Lenses, One Topic</h2>
+                <p class="section-description">Understanding improves when a topic is examined from multiple angles. Each WhyItTV topic is explored through five distinct formats—watch one, or go deeper with all five.</p>
+            </div>
+            
+            <div class="format-grid">
+                <div class="format-card">
+                    <div class="format-number">01</div>
+                    <h3 class="format-title">Explainer</h3>
+                    <p class="format-description">The narrative foundation. Where did this come from? What did it accomplish? The chronological story with meaning.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-number">02</div>
+                    <h3 class="format-title">Debate</h3>
+                    <p class="format-description">Competing interpretations without declaring a winner. Multiple reasonable lenses, ending with better questions.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-number">03</div>
+                    <h3 class="format-title">Critique</h3>
+                    <p class="format-description">Decisions, constraints, and consequences. What made sense then, what happened when it hit reality.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-number">04</div>
+                    <h3 class="format-title">Deep Dive</h3>
+                    <p class="format-description">Systems under the story. The mechanisms, structures, incentives, and logistics that shaped outcomes.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-number">05</div>
+                    <h3 class="format-title">Infographic</h3>
+                    <p class="format-description">Visual compression of the story and structure. Key facts, timelines, and relationships at a glance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Latest Topic Section -->
     <section class="section latest-topic">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Latest Drop</span>
-                <h2 class="section-title">This Week's Topic</h2>
+                <h2 class="section-title">Now Exploring</h2>
             </div>
             
-            <article class="topic-card topic-card-featured" itemscope itemtype="https://schema.org/Article">
-                <div class="topic-card-image">
-                    <img src="assets/images/topics/sour-diesel-thumb.jpg" alt="Sour Diesel - The Story Behind the Strain" loading="lazy">
-                    <div class="topic-card-overlay">
-                        <span class="topic-card-category">Cannabis Culture</span>
-                    </div>
+            <article class="topic-feature">
+                <div class="topic-feature-image">
+                    <img src="assets/images/topics/sour-diesel/hero.png" alt="Sour Diesel" loading="lazy">
+                    <div class="topic-feature-glow"></div>
                 </div>
-                <div class="topic-card-content">
-                    <h3 class="topic-card-title" itemprop="headline">Sour Diesel</h3>
-                    <p class="topic-card-subtitle">The mysterious origins, legendary effects, and cultural impact of one of cannabis's most iconic strains.</p>
-                    <meta itemprop="datePublished" content="2024-12-27">
-                    <div class="topic-card-assets">
-                        <span class="asset-badge">Explainer</span>
-                        <span class="asset-badge">Debate</span>
-                        <span class="asset-badge">Critique</span>
-                        <span class="asset-badge">Deep Dive</span>
+                <div class="topic-feature-content">
+                    <span class="topic-category">Cannabis Culture</span>
+                    <h3 class="topic-feature-title">Sour Diesel</h3>
+                    <p class="topic-feature-subtitle">The mysterious origins, legendary effects, and cultural impact of one of cannabis's most iconic strains. How did a disputed lineage become an East Coast anthem?</p>
+                    <div class="topic-formats">
+                        <span class="format-tag">Explainer</span>
+                        <span class="format-tag">Debate</span>
+                        <span class="format-tag">Critique</span>
+                        <span class="format-tag">Deep Dive</span>
+                        <span class="format-tag">Infographic</span>
                     </div>
-                    <a href="/topics/sour-diesel" class="btn btn-primary">Explore Topic</a>
+                    <a href="/topics/sour-diesel.html" class="btn btn-primary">Explore This Topic</a>
                 </div>
             </article>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="section how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">The Format</span>
-                <h2 class="section-title">Every Topic, Multiple Angles</h2>
-                <p class="section-description">Each week we explore one topic through four distinct lenses. Watch one or binge them all.</p>
-            </div>
-            
-            <div class="format-grid">
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    </div>
-                    <h3 class="format-title">Explainer</h3>
-                    <p class="format-description">The narrative foundation. Where did this come from? What did it accomplish? The chronological story with meaning.</p>
-                </div>
-                
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3 class="format-title">Debate</h3>
-                    <p class="format-description">Competing interpretations without declaring a winner. Multiple reasonable lenses on the same story.</p>
-                </div>
-                
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h3 class="format-title">Critique</h3>
-                    <p class="format-description">Decisions, constraints, consequences, and trade-offs. What made sense then, what happened when it hit reality.</p>
-                </div>
-                
-                <div class="format-card">
-                    <div class="format-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
-                    </div>
-                    <h3 class="format-title">Deep Dive</h3>
-                    <p class="format-description">Systems under the story. The mechanisms, structures, incentives, and logistics that shaped outcomes.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -198,28 +191,45 @@
                 <h2 class="section-title">Coming Up</h2>
             </div>
             
-            <div class="upcoming-topic">
-                <div class="upcoming-topic-content">
-                    <span class="upcoming-label">January 3, 2025 at Midnight</span>
+            <div class="upcoming-grid">
+                <div class="upcoming-card">
+                    <span class="upcoming-number">02</span>
                     <h3 class="upcoming-title">Nike</h3>
-                    <p class="upcoming-description">From a handshake deal with a Japanese shoe company to the most valuable sports brand on Earth. The origin story, the accomplishments, the controversies, and the battles that shaped athletic culture.</p>
+                    <p class="upcoming-description">From a handshake deal with a Japanese shoe company to the most valuable sports brand on Earth.</p>
                 </div>
-                <div class="upcoming-countdown" id="countdown">
+                <div class="upcoming-card upcoming-card-future">
+                    <span class="upcoming-number">03</span>
+                    <h3 class="upcoming-title">Levi Strauss</h3>
+                    <p class="upcoming-description">How workwear became counterculture became global uniform.</p>
+                </div>
+                <div class="upcoming-card upcoming-card-future">
+                    <span class="upcoming-number">04</span>
+                    <h3 class="upcoming-title">Chevrolet</h3>
+                    <p class="upcoming-description">The brand that became synonymous with American identity.</p>
+                </div>
+            </div>
+            
+            <div class="countdown-container">
+                <p class="countdown-label">Next drop in</p>
+                <div class="countdown" id="countdown">
                     <div class="countdown-item">
                         <span class="countdown-value" id="days">--</span>
-                        <span class="countdown-label">Days</span>
+                        <span class="countdown-unit">Days</span>
                     </div>
+                    <div class="countdown-separator">:</div>
                     <div class="countdown-item">
                         <span class="countdown-value" id="hours">--</span>
-                        <span class="countdown-label">Hours</span>
+                        <span class="countdown-unit">Hours</span>
                     </div>
+                    <div class="countdown-separator">:</div>
                     <div class="countdown-item">
                         <span class="countdown-value" id="minutes">--</span>
-                        <span class="countdown-label">Minutes</span>
+                        <span class="countdown-unit">Min</span>
                     </div>
+                    <div class="countdown-separator">:</div>
                     <div class="countdown-item">
                         <span class="countdown-value" id="seconds">--</span>
-                        <span class="countdown-label">Seconds</span>
+                        <span class="countdown-unit">Sec</span>
                     </div>
                 </div>
             </div>
@@ -227,32 +237,45 @@
     </section>
 
     <!-- The Promise Section -->
-    <section class="section the-promise">
+    <section class="section promise-section">
         <div class="container">
             <div class="promise-content">
                 <h2 class="promise-title">The WhyItTV Promise</h2>
-                <p class="promise-intro">Every topic we cover aims to answer five questions:</p>
-                <ol class="promise-list">
-                    <li><span class="promise-number">01</span> Where did this come from?</li>
-                    <li><span class="promise-number">02</span> What did it accomplish?</li>
-                    <li><span class="promise-number">03</span> What cultural role did it play?</li>
-                    <li><span class="promise-number">04</span> What constraints and struggles shaped it?</li>
-                    <li><span class="promise-number">05</span> What is still unresolved about where it goes next?</li>
-                </ol>
+                <p class="promise-intro">Every topic aims to answer five questions:</p>
+                <div class="promise-grid">
+                    <div class="promise-item">
+                        <span class="promise-number">01</span>
+                        <p>Where did this come from?</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-number">02</span>
+                        <p>What did it accomplish?</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-number">03</span>
+                        <p>What cultural role did it play?</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-number">04</span>
+                        <p>What constraints and struggles shaped it?</p>
+                    </div>
+                    <div class="promise-item">
+                        <span class="promise-number">05</span>
+                        <p>What is still unresolved?</p>
+                    </div>
+                </div>
                 <p class="promise-closing">We don't promise conclusions. We promise clarity.</p>
             </div>
         </div>
     </section>
 
     <!-- AI Transparency Section -->
-    <section class="section ai-transparency">
+    <section class="section ai-section">
         <div class="container">
             <div class="ai-content">
-                <div class="ai-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg>
-                </div>
+                <div class="ai-badge">Transparency</div>
                 <h2 class="ai-title">AI as a Creative Partner</h2>
-                <p class="ai-description">We use artificial intelligence openly as a research and synthesis partner to enable timely, educational, entertaining storytelling backed by strong research—without gatekeepers. This is not a hidden shortcut; it's a deliberate advantage.</p>
+                <p class="ai-description">WhyItTV uses artificial intelligence openly as a research and synthesis partner. This enables timely, well-researched storytelling without gatekeepers. It's not a hidden shortcut—it's a deliberate advantage that we're building on as tools evolve.</p>
             </div>
         </div>
     </section>
@@ -262,15 +285,16 @@
         <div class="container">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <img src="assets/images/logo-neon.png" alt="WhyItTV" class="footer-logo">
+                    <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="footer-logo">
                     <p class="footer-tagline">Context over hype. Relevance over noise.</p>
+                    <p class="footer-series">Part of an ongoing exploration.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-col">
                         <h4>Explore</h4>
-                        <a href="/topics">All Topics</a>
-                        <a href="/schedule">Schedule</a>
-                        <a href="/about">About</a>
+                        <a href="/topics.html">All Topics</a>
+                        <a href="/schedule.html">Schedule</a>
+                        <a href="/about.html">About</a>
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
