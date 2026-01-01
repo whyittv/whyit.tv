@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhyItTV - Context Over Hype, Relevance Over Noise</title>
+    <meta name="description" content="WhyItTV explores the history, cultural impact, and unresolved questions behind influential brands, ideas, and systems. New topic every Friday at midnight.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="WhyItTV - Context Over Hype">
+    <meta property="og:description" content="Story-driven exploration of brands, ideas, and systems that shape culture. We give you context so you can decide what to think.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whyit.tv">
+    <meta property="og:image" content="https://whyit.tv/assets/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@whyitTV">
+    <meta name="twitter:title" content="WhyItTV - Context Over Hype">
+    <meta name="twitter:description" content="Story-driven exploration of brands, ideas, and systems that shape culture.">
+    
+    <!-- Schema.org structured data for LLMEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WhyItTV",
+        "alternateName": "Why It TV",
+        "url": "https://whyit.tv",
+        "description": "Story-driven educational series exploring influential brands, ideas, and systems through history, accomplishments, cultural impact, struggles, and open questions.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "WhyItTV",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://whyit.tv/assets/images/logo-neon.png"
+            },
+            "sameAs": [
+                "https://youtube.com/@whyitTV",
+                "https://twitter.com/whyitTV",
+                "https://tiktok.com/@whyitTV"
+            ]
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://whyit.tv/topics?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-clean.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/logo-neon.png" alt="WhyItTV" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="/topics" class="nav-link">Topics</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/schedule" class="nav-link">Schedule</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">New Topic Every Friday at Midnight</div>
+            <h1 class="hero-title">
+                <span class="hero-title-line">Context Over Hype.</span>
+                <span class="hero-title-line accent">Relevance Over Noise.</span>
+            </h1>
+            <p class="hero-description">
+                WhyItTV explores the history, cultural impact, and unresolved questions behind influential brands, ideas, and systems. We don't tell you what to think—we give you context so you can decide for yourself.
+            </p>
+            <div class="hero-cta">
+                <a href="https://youtube.com/@whyitTV?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    Subscribe on YouTube
+                </a>
+                <a href="/topics" class="btn btn-secondary">Explore Topics</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </div>
+    </header>
+
+    <!-- Latest Topic Section -->
+    <section class="section latest-topic">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Latest Drop</span>
+                <h2 class="section-title">This Week's Topic</h2>
+            </div>
+            
+            <article class="topic-card topic-card-featured" itemscope itemtype="https://schema.org/Article">
+                <div class="topic-card-image">
+                    <img src="assets/images/topics/sour-diesel-thumb.jpg" alt="Sour Diesel - The Story Behind the Strain" loading="lazy">
+                    <div class="topic-card-overlay">
+                        <span class="topic-card-category">Cannabis Culture</span>
+                    </div>
+                </div>
+                <div class="topic-card-content">
+                    <h3 class="topic-card-title" itemprop="headline">Sour Diesel</h3>
+                    <p class="topic-card-subtitle">The mysterious origins, legendary effects, and cultural impact of one of cannabis's most iconic strains.</p>
+                    <meta itemprop="datePublished" content="2024-12-27">
+                    <div class="topic-card-assets">
+                        <span class="asset-badge">Explainer</span>
+                        <span class="asset-badge">Debate</span>
+                        <span class="asset-badge">Critique</span>
+                        <span class="asset-badge">Deep Dive</span>
+                    </div>
+                    <a href="/topics/sour-diesel" class="btn btn-primary">Explore Topic</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The Format</span>
+                <h2 class="section-title">Every Topic, Multiple Angles</h2>
+                <p class="section-description">Each week we explore one topic through four distinct lenses. Watch one or binge them all.</p>
+            </div>
+            
+            <div class="format-grid">
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    </div>
+                    <h3 class="format-title">Explainer</h3>
+                    <p class="format-description">The narrative foundation. Where did this come from? What did it accomplish? The chronological story with meaning.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="format-title">Debate</h3>
+                    <p class="format-description">Competing interpretations without declaring a winner. Multiple reasonable lenses on the same story.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3 class="format-title">Critique</h3>
+                    <p class="format-description">Decisions, constraints, consequences, and trade-offs. What made sense then, what happened when it hit reality.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                    </div>
+                    <h3 class="format-title">Deep Dive</h3>
+                    <p class="format-description">Systems under the story. The mechanisms, structures, incentives, and logistics that shaped outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Up Section -->
+    <section class="section coming-up">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Next Friday</span>
+                <h2 class="section-title">Coming Up</h2>
+            </div>
+            
+            <div class="upcoming-topic">
+                <div class="upcoming-topic-content">
+                    <span class="upcoming-label">January 3, 2025 at Midnight</span>
+                    <h3 class="upcoming-title">Nike</h3>
+                    <p class="upcoming-description">From a handshake deal with a Japanese shoe company to the most valuable sports brand on Earth. The origin story, the accomplishments, the controversies, and the battles that shaped athletic culture.</p>
+                </div>
+                <div class="upcoming-countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">--</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">--</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">--</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">--</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Promise Section -->
+    <section class="section the-promise">
+        <div class="container">
+            <div class="promise-content">
+                <h2 class="promise-title">The WhyItTV Promise</h2>
+                <p class="promise-intro">Every topic we cover aims to answer five questions:</p>
+                <ol class="promise-list">
+                    <li><span class="promise-number">01</span> Where did this come from?</li>
+                    <li><span class="promise-number">02</span> What did it accomplish?</li>
+                    <li><span class="promise-number">03</span> What cultural role did it play?</li>
+                    <li><span class="promise-number">04</span> What constraints and struggles shaped it?</li>
+                    <li><span class="promise-number">05</span> What is still unresolved about where it goes next?</li>
+                </ol>
+                <p class="promise-closing">We don't promise conclusions. We promise clarity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Transparency Section -->
+    <section class="section ai-transparency">
+        <div class="container">
+            <div class="ai-content">
+                <div class="ai-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg>
+                </div>
+                <h2 class="ai-title">AI as a Creative Partner</h2>
+                <p class="ai-description">We use artificial intelligence openly as a research and synthesis partner to enable timely, educational, entertaining storytelling backed by strong research—without gatekeepers. This is not a hidden shortcut; it's a deliberate advantage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/images/logo-neon.png" alt="WhyItTV" class="footer-logo">
+                    <p class="footer-tagline">Context over hype. Relevance over noise.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="/topics">All Topics</a>
+                        <a href="/schedule">Schedule</a>
+                        <a href="/about">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener">YouTube</a>
+                        <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener">X / Twitter</a>
+                        <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WhyItTV. All rights reserved.</p>
+                <p class="footer-drop">New topic every Friday at midnight.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
