@@ -192,11 +192,99 @@
 
 .format-asset-infographic {
     grid-column: span 2;
+    cursor: pointer;
 }
 
 .format-asset-infographic .format-asset-image {
     aspect-ratio: auto;
-    max-height: 500px;
+    max-height: none;
+    overflow: visible;
+    position: relative;
+}
+
+.format-asset-infographic .format-asset-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+}
+
+/* Infographic lightbox/modal */
+.infographic-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    padding: var(--space-lg);
+    overflow-y: auto;
+    cursor: zoom-out;
+}
+
+.infographic-modal.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.infographic-modal img {
+    max-width: 100%;
+    width: auto;
+    max-height: none;
+    border-radius: var(--radius-md);
+}
+
+.infographic-modal-close {
+    position: fixed;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: all var(--transition-fast);
+}
+
+.infographic-modal-close:hover {
+    background: var(--color-red);
+    border-color: var(--color-red);
+}
+
+.infographic-hint {
+    position: absolute;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-text-primary);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.format-asset-infographic:hover .infographic-hint {
+    opacity: 1;
+}
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.format-asset-infographic:hover .infographic-expand {
+    opacity: 1;
 }
 
 .format-asset-infographic .format-asset-image img {

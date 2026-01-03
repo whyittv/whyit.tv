@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCountdown();
     initMobileNav();
     initScrollEffects();
+    initInfographicLightbox();
 });
 
 // ===== Countdown Timer =====
@@ -152,3 +153,61 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===== Infographic Lightbox =====
+function initInfographicLightbox() {
+    const infographicCards = document.querySelectorAll('.format-asset-infographic');
+    
+    if (!infographicCards.length) return;
+    
+    // Create modal element
+    const modal = document.createElement('div');
+    modal.className = 'infographic-modal';
+    modal.innerHTML = `
+        <button class="infographic-modal-close" aria-label="Close">&times;</button>
+        <img src="" alt="Infographic full view">
+    `;
+    document.body.appendChild(modal);
+    
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.infographic-modal-close');
+    
+    // Add click handlers to infographic cards
+    infographicCards.forEach(card => {
+        const img = card.querySelector('img');
+        if (!img) return;
+        
+        // Add hint element
+        const hint = document.createElement('span');
+        hint.className = 'infographic-hint';
+        hint.textContent = 'Click to view full size';
+        card.querySelector('.format-asset-image').appendChild(hint);
+        
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close modal handlers
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
