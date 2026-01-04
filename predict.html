@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict the Drop - WhyItTV</title>
+    <meta name="description" content="Can you guess Friday's topic? New clues revealed daily. Predict correctly and join the Context Detectives.">
+    
+    <meta property="og:title" content="Predict the Drop - WhyItTV">
+    <meta property="og:description" content="Can you guess Friday's topic? New clues revealed daily.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/brand/logo-clean.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="/topics.html" class="nav-link">Topics</a>
+                <a href="/predict.html" class="nav-link nav-link-active">Predict</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/schedule.html" class="nav-link">Schedule</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="predict-header">
+        <div class="container">
+            <span class="predict-badge">Weekly Game</span>
+            <h1 class="predict-title">Predict the Drop</h1>
+            <p class="predict-subtitle">Can you guess Friday's topic before it drops?</p>
+        </div>
+    </header>
+
+    <!-- Main Game Area -->
+    <section class="section predict-game">
+        <div class="container">
+            <div class="predict-container">
+                
+                <!-- Clues Section -->
+                <div class="clues-section">
+                    <h2 class="clues-title">This Week's Clues</h2>
+                    <p class="clues-intro">New clue revealed each day. More clues = easier guess.</p>
+                    
+                    <div class="clues-grid" id="cluesGrid">
+                        <!-- Clues will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="clues-countdown">
+                        <span>Next clue in: </span>
+                        <span id="clueCountdown">--:--:--</span>
+                    </div>
+                </div>
+
+                <!-- Guess Section -->
+                <div class="guess-section" id="guessSection">
+                    <h2 class="guess-title">Make Your Prediction</h2>
+                    
+                    <form class="guess-form" id="guessForm">
+                        <div class="guess-input-wrapper">
+                            <input 
+                                type="text" 
+                                id="guessInput" 
+                                class="guess-input" 
+                                placeholder="Enter your guess..."
+                                autocomplete="off"
+                                required
+                            >
+                            <button type="submit" class="btn btn-primary guess-submit">
+                                Submit Guess
+                            </button>
+                        </div>
+                        <p class="guess-hint">Hint: It's a brand, company, product, or cultural phenomenon</p>
+                    </form>
+                    
+                    <div class="guess-result" id="guessResult" style="display: none;">
+                        <!-- Result will appear here -->
+                    </div>
+                </div>
+
+                <!-- Revealed Section (shown after drop) -->
+                <div class="revealed-section" id="revealedSection" style="display: none;">
+                    <div class="revealed-card">
+                        <span class="revealed-label">This Week's Topic Was</span>
+                        <h2 class="revealed-answer" id="revealedAnswer">???</h2>
+                        <a href="#" id="revealedLink" class="btn btn-primary">Watch Now</a>
+                    </div>
+                    
+                    <div class="detectives-section" id="detectivesSection">
+                        <h3 class="detectives-title">🔍 Context Detectives</h3>
+                        <p class="detectives-intro">These viewers guessed correctly:</p>
+                        <ul class="detectives-list" id="detectivesList">
+                            <!-- Names populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section predict-how">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="how-grid">
+                <div class="how-item">
+                    <span class="how-number">01</span>
+                    <h3>Watch for Clues</h3>
+                    <p>New clues drop daily, Monday through Thursday. Each one gets more obvious.</p>
+                </div>
+                <div class="how-item">
+                    <span class="how-number">02</span>
+                    <h3>Submit Your Guess</h3>
+                    <p>Think you know what Friday's topic will be? Lock in your prediction.</p>
+                </div>
+                <div class="how-item">
+                    <span class="how-number">03</span>
+                    <h3>Join the Detectives</h3>
+                    <p>Guess correctly and get your name on the Context Detectives list.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Winners / Hall of Fame -->
+    <section class="section predict-hall">
+        <div class="container">
+            <h2 class="section-title">Hall of Context</h2>
+            <p class="hall-intro">Top predictors across all drops</p>
+            <div class="hall-grid" id="hallOfFame">
+                <div class="hall-empty">
+                    <p>First predictions start this week!</p>
+                    <p class="hall-empty-sub">Be the first Context Detective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="footer-logo">
+                    <p class="footer-tagline">Context over hype. Relevance over noise.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="/topics.html">All Topics</a>
+                        <a href="/predict.html">Predict the Drop</a>
+                        <a href="/schedule.html">Schedule</a>
+                        <a href="/about.html">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener">YouTube</a>
+                        <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener">X / Twitter</a>
+                        <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WhyItTV. All rights reserved.</p>
+                <p class="footer-drop">New topic every Friday at 11:59 PM CT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Predict the Drop Game Logic
+    (function() {
+        // ===================
+        // CONFIGURATION - Update this each week!
+        // ===================
+        const CURRENT_WEEK = {
+            answer: 'Levi Strauss',
+            acceptedAnswers: ['levi', 'levis', "levi's", 'levi strauss', 'levi-strauss', 'levis jeans', 'levi jeans'],
+            releaseDate: '2025-01-10T23:59:00-06:00',
+            topicUrl: '/topics/levi-strauss.html',
+            clues: [
+                { day: 'Monday', text: 'This brand started during a gold rush—but not for gold.', unlockDay: 1 },
+                { day: 'Tuesday', text: 'A patent from 1873 changed workwear forever.', unlockDay: 2 },
+                { day: 'Wednesday', text: 'Rebels, cowboys, and rock stars all wore it.', unlockDay: 3 },
+                { day: 'Thursday', text: 'The number 501 means something special here.', unlockDay: 4 }
+            ]
+        };
+
+        // Storage keys
+        const STORAGE_KEYS = {
+            guesses: 'whyit_predict_guesses',
+            detectives: 'whyit_predict_detectives',
+            hallOfFame: 'whyit_predict_hall'
+        };
+
+        // ===================
+        // INITIALIZATION
+        // ===================
+        document.addEventListener('DOMContentLoaded', function() {
+            initPredictGame();
+        });
+
+        function initPredictGame() {
+            const now = new Date();
+            const releaseDate = new Date(CURRENT_WEEK.releaseDate);
+            const isRevealed = now >= releaseDate;
+
+            if (isRevealed) {
+                showRevealedState();
+            } else {
+                showGameState();
+            }
+
+            renderClues();
+            startClueCountdown();
+        }
+
+        // ===================
+        // CLUES
+        // ===================
+        function renderClues() {
+            const grid = document.getElementById('cluesGrid');
+            if (!grid) return;
+
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0=Sun, 1=Mon, etc.
+            
+            // Map day of week to clue unlock (Mon=1, Tue=2, etc.)
+            // If it's after Friday (release), show all clues
+            const releaseDate = new Date(CURRENT_WEEK.releaseDate);
+            const isRevealed = now >= releaseDate;
+
+            grid.innerHTML = CURRENT_WEEK.clues.map((clue, index) => {
+                const isUnlocked = isRevealed || dayOfWeek >= clue.unlockDay;
+                
+                return `
+                    <div class="clue-card ${isUnlocked ? 'clue-unlocked' : 'clue-locked'}">
+                        <span class="clue-day">${clue.day}</span>
+                        <p class="clue-text">${isUnlocked ? clue.text : '🔒 Locked'}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function startClueCountdown() {
+            const countdownEl = document.getElementById('clueCountdown');
+            if (!countdownEl) return;
+
+            function update() {
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setHours(0, 0, 0, 0);
+                
+                const diff = tomorrow - now;
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                countdownEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+
+        // ===================
+        // GAME STATE
+        // ===================
+        function showGameState() {
+            const guessSection = document.getElementById('guessSection');
+            const revealedSection = document.getElementById('revealedSection');
+            
+            if (guessSection) guessSection.style.display = 'block';
+            if (revealedSection) revealedSection.style.display = 'none';
+
+            // Check if user already guessed
+            const userGuess = getUserGuess();
+            if (userGuess) {
+                showGuessLocked(userGuess);
+            } else {
+                initGuessForm();
+            }
+        }
+
+        function showRevealedState() {
+            const guessSection = document.getElementById('guessSection');
+            const revealedSection = document.getElementById('revealedSection');
+            const revealedAnswer = document.getElementById('revealedAnswer');
+            const revealedLink = document.getElementById('revealedLink');
+            
+            if (guessSection) guessSection.style.display = 'none';
+            if (revealedSection) revealedSection.style.display = 'block';
+            if (revealedAnswer) revealedAnswer.textContent = CURRENT_WEEK.answer;
+            if (revealedLink) revealedLink.href = CURRENT_WEEK.topicUrl;
+
+            renderDetectives();
+        }
+
+        // ===================
+        // GUESSING
+        // ===================
+        function initGuessForm() {
+            const form = document.getElementById('guessForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const input = document.getElementById('guessInput');
+                const guess = input.value.trim();
+                
+                if (guess) {
+                    submitGuess(guess);
+                }
+            });
+        }
+
+        function submitGuess(guess) {
+            const guessLower = guess.toLowerCase();
+            const isCorrect = CURRENT_WEEK.acceptedAnswers.some(answer => 
+                guessLower.includes(answer) || answer.includes(guessLower)
+            );
+
+            // Save guess
+            saveUserGuess(guess, isCorrect);
+
+            // Show locked state
+            showGuessLocked(guess, isCorrect, true);
+
+            // If correct, prompt for name
+            if (isCorrect) {
+                setTimeout(() => {
+                    const name = prompt("🎉 Correct! Enter your name for the Context Detectives list:");
+                    if (name && name.trim()) {
+                        addDetective(name.trim());
+                    }
+                }, 500);
+            }
+        }
+
+        function showGuessLocked(guess, isCorrect = null, justSubmitted = false) {
+            const form = document.getElementById('guessForm');
+            const result = document.getElementById('guessResult');
+            
+            if (form) form.style.display = 'none';
+            if (result) {
+                result.style.display = 'block';
+                
+                if (justSubmitted) {
+                    result.innerHTML = `
+                        <div class="guess-locked ${isCorrect ? 'guess-correct' : 'guess-pending'}">
+                            <span class="guess-locked-icon">${isCorrect ? '✓' : '🔒'}</span>
+                            <p class="guess-locked-text">Your prediction: <strong>${guess}</strong></p>
+                            <p class="guess-locked-status">${isCorrect ? 
+                                "Nice! You'll be added to the Context Detectives when the topic drops." : 
+                                "Locked in! Check back Friday to see if you're right."
+                            }</p>
+                        </div>
+                    `;
+                } else {
+                    result.innerHTML = `
+                        <div class="guess-locked guess-pending">
+                            <span class="guess-locked-icon">🔒</span>
+                            <p class="guess-locked-text">Your prediction: <strong>${guess}</strong></p>
+                            <p class="guess-locked-status">Waiting for Friday's reveal...</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // ===================
+        // STORAGE
+        // ===================
+        function getUserGuess() {
+            try {
+                const guesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.guesses) || '{}');
+                const weekKey = CURRENT_WEEK.releaseDate;
+                return guesses[weekKey]?.guess || null;
+            } catch {
+                return null;
+            }
+        }
+
+        function saveUserGuess(guess, isCorrect) {
+            try {
+                const guesses = JSON.parse(localStorage.getItem(STORAGE_KEYS.guesses) || '{}');
+                const weekKey = CURRENT_WEEK.releaseDate;
+                guesses[weekKey] = { guess, isCorrect, timestamp: new Date().toISOString() };
+                localStorage.setItem(STORAGE_KEYS.guesses, JSON.stringify(guesses));
+            } catch (e) {
+                console.error('Failed to save guess:', e);
+            }
+        }
+
+        function addDetective(name) {
+            try {
+                const detectives = JSON.parse(localStorage.getItem(STORAGE_KEYS.detectives) || '{}');
+                const weekKey = CURRENT_WEEK.releaseDate;
+                if (!detectives[weekKey]) {
+                    detectives[weekKey] = [];
+                }
+                if (!detectives[weekKey].includes(name)) {
+                    detectives[weekKey].push(name);
+                }
+                localStorage.setItem(STORAGE_KEYS.detectives, JSON.stringify(detectives));
+            } catch (e) {
+                console.error('Failed to save detective:', e);
+            }
+        }
+
+        function renderDetectives() {
+            const list = document.getElementById('detectivesList');
+            if (!list) return;
+
+            try {
+                const detectives = JSON.parse(localStorage.getItem(STORAGE_KEYS.detectives) || '{}');
+                const weekKey = CURRENT_WEEK.releaseDate;
+                const weekDetectives = detectives[weekKey] || [];
+
+                if (weekDetectives.length > 0) {
+                    list.innerHTML = weekDetectives.map(name => 
+                        `<li class="detective-name">🔍 ${name}</li>`
+                    ).join('');
+                } else {
+                    list.innerHTML = '<li class="detective-empty">No correct guesses yet!</li>';
+                }
+            } catch {
+                list.innerHTML = '<li class="detective-empty">No correct guesses yet!</li>';
+            }
+        }
+
+    })();
+    </script>
+
+    <style>
+    /* Predict the Drop Styles */
+    .predict-header {
+        padding: calc(var(--space-3xl) + 80px) 0 var(--space-xl);
+        text-align: center;
+        background: var(--color-bg-dark);
+    }
+
+    .predict-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-neon-green);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: var(--space-md);
+        padding: var(--space-xs) var(--space-md);
+        border: 1px solid var(--color-neon-green);
+        border-radius: var(--radius-full);
+    }
+
+    .predict-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+        margin-bottom: var(--space-md);
+    }
+
+    .predict-subtitle {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+    }
+
+    .predict-game {
+        background: var(--color-bg-deep);
+    }
+
+    .predict-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Clues */
+    .clues-section {
+        margin-bottom: var(--space-2xl);
+    }
+
+    .clues-title {
+        font-size: 1.75rem;
+        margin-bottom: var(--space-sm);
+        text-align: center;
+    }
+
+    .clues-intro {
+        color: var(--color-text-muted);
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .clues-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    @media (max-width: 600px) {
+        .clues-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .clue-card {
+        background: var(--color-bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        transition: all var(--transition-base);
+    }
+
+    .clue-unlocked {
+        border-color: rgba(0, 245, 160, 0.2);
+    }
+
+    .clue-locked {
+        opacity: 0.5;
+    }
+
+    .clue-day {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.875rem;
+        color: var(--color-neon-green);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-sm);
+    }
+
+    .clue-locked .clue-day {
+        color: var(--color-text-muted);
+    }
+
+    .clue-text {
+        font-size: 1rem;
+        color: var(--color-text-primary);
+        line-height: 1.5;
+    }
+
+    .clue-locked .clue-text {
+        color: var(--color-text-muted);
+    }
+
+    .clues-countdown {
+        text-align: center;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+
+    .clues-countdown span:last-child {
+        font-family: var(--font-display);
+        color: var(--color-red);
+        font-size: 1.125rem;
+    }
+
+    /* Guess Form */
+    .guess-section {
+        background: var(--color-bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+        text-align: center;
+    }
+
+    .guess-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .guess-input-wrapper {
+        display: flex;
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+    }
+
+    @media (max-width: 600px) {
+        .guess-input-wrapper {
+            flex-direction: column;
+        }
+    }
+
+    .guess-input {
+        flex: 1;
+        background: var(--color-bg-surface);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        padding: var(--space-md) var(--space-lg);
+        font-size: 1.125rem;
+        color: var(--color-text-primary);
+        transition: all var(--transition-fast);
+    }
+
+    .guess-input:focus {
+        outline: none;
+        border-color: var(--color-neon-green);
+        box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.1);
+    }
+
+    .guess-input::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    .guess-submit {
+        white-space: nowrap;
+    }
+
+    .guess-hint {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+
+    /* Guess Result */
+    .guess-locked {
+        padding: var(--space-xl);
+        border-radius: var(--radius-lg);
+        background: var(--color-bg-surface);
+    }
+
+    .guess-correct {
+        border: 1px solid var(--color-neon-green);
+        background: rgba(0, 245, 160, 0.05);
+    }
+
+    .guess-locked-icon {
+        font-size: 3rem;
+        display: block;
+        margin-bottom: var(--space-md);
+    }
+
+    .guess-locked-text {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .guess-locked-status {
+        color: var(--color-text-muted);
+    }
+
+    .guess-correct .guess-locked-status {
+        color: var(--color-neon-green);
+    }
+
+    /* Revealed State */
+    .revealed-section {
+        text-align: center;
+    }
+
+    .revealed-card {
+        background: linear-gradient(135deg, rgba(230, 57, 70, 0.1), rgba(0, 245, 160, 0.1));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        margin-bottom: var(--space-xl);
+    }
+
+    .revealed-label {
+        display: block;
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-md);
+    }
+
+    .revealed-answer {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        color: var(--color-neon-green);
+        text-shadow: 0 0 30px var(--color-neon-green-glow);
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Detectives */
+    .detectives-section {
+        background: var(--color-bg-card);
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+    }
+
+    .detectives-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .detectives-intro {
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-lg);
+    }
+
+    .detectives-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        justify-content: center;
+    }
+
+    .detective-name {
+        background: var(--color-bg-surface);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+    }
+
+    .detective-empty {
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    /* How It Works */
+    .predict-how {
+        background: var(--color-bg-dark);
+    }
+
+    .how-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .how-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .how-item {
+        text-align: center;
+    }
+
+    .how-number {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 3rem;
+        color: var(--color-red);
+        opacity: 0.3;
+        margin-bottom: var(--space-sm);
+    }
+
+    .how-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .how-item p {
+        color: var(--color-text-muted);
+        font-size: 0.9375rem;
+    }
+
+    /* Hall of Fame */
+    .predict-hall {
+        background: var(--color-bg-deep);
+    }
+
+    .hall-intro {
+        text-align: center;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-xl);
+    }
+
+    .hall-grid {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hall-empty {
+        text-align: center;
+        padding: var(--space-2xl);
+        background: var(--color-bg-card);
+        border-radius: var(--radius-xl);
+    }
+
+    .hall-empty p {
+        font-size: 1.125rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .hall-empty-sub {
+        color: var(--color-text-muted);
+        font-size: 0.9375rem;
+    }
+
+    .nav-link-active {
+        color: var(--color-neon-green) !important;
+    }
+    </style>
+</body>
+</html>
