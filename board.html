@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Board - WhyItTV</title>
+    <meta name="description" content="Join the conversation. Each week we pose a question. The best answers get featured. Become a Board Member.">
+    
+    <meta property="og:title" content="The Board - WhyItTV">
+    <meta property="og:description" content="Weekly questions. Community answers. Join the conversation.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/brand/logo-clean.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="/topics.html" class="nav-link">Topics</a>
+                <a href="/board.html" class="nav-link nav-link-active">The Board</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/schedule.html" class="nav-link">Schedule</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="X/Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                </a>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="board-header">
+        <div class="container">
+            <span class="board-badge">Community</span>
+            <h1 class="board-title">The Board</h1>
+            <p class="board-subtitle">Weekly questions. Community answers. Shared context.</p>
+        </div>
+    </header>
+
+    <!-- Current Question -->
+    <section class="section board-question-section">
+        <div class="container">
+            <div class="board-question-container">
+                <div class="board-question-header">
+                    <span class="board-question-label">This Week's Question</span>
+                    <span class="board-question-topic" id="questionTopic">Levi Strauss — Jan 10</span>
+                </div>
+                
+                <h2 class="board-question" id="currentQuestion">
+                    What piece of clothing has shaped how people see you—or how you see yourself?
+                </h2>
+                
+                <p class="board-question-context" id="questionContext">
+                    Levi's started as workwear and became a symbol of rebellion, identity, and self-expression. 
+                    We want to hear your story.
+                </p>
+
+                <div class="board-countdown">
+                    <span>Submissions close in: </span>
+                    <span id="boardCountdown">--:--:--</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Section -->
+    <section class="section board-submit-section" id="submitSection">
+        <div class="container">
+            <div class="board-submit-container">
+                <h3 class="board-submit-title">Share Your Answer</h3>
+                
+                <form class="board-form" id="boardForm">
+                    <div class="board-form-group">
+                        <label for="boardName" class="board-label">Your Name</label>
+                        <input 
+                            type="text" 
+                            id="boardName" 
+                            class="board-input" 
+                            placeholder="How you want to be credited"
+                            maxlength="50"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="board-form-group">
+                        <label for="boardAnswer" class="board-label">Your Answer</label>
+                        <textarea 
+                            id="boardAnswer" 
+                            class="board-textarea" 
+                            placeholder="Share your perspective (50-150 words works best)"
+                            maxlength="1000"
+                            required
+                        ></textarea>
+                        <span class="board-char-count"><span id="charCount">0</span>/1000</span>
+                    </div>
+                    
+                    <div class="board-form-group">
+                        <label for="boardHandle" class="board-label">Social Handle (optional)</label>
+                        <input 
+                            type="text" 
+                            id="boardHandle" 
+                            class="board-input" 
+                            placeholder="@yourhandle"
+                            maxlength="50"
+                        >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary board-submit-btn">
+                        Submit to The Board
+                    </button>
+                </form>
+                
+                <div class="board-submitted" id="boardSubmitted" style="display: none;">
+                    <div class="board-submitted-icon">✓</div>
+                    <h3>Submitted!</h3>
+                    <p>Thanks for contributing. If your answer is selected, you'll be featured when the topic drops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Answers -->
+    <section class="section board-featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Board Members</h2>
+            <p class="board-featured-intro">Selected answers from previous weeks</p>
+            
+            <div class="board-featured-grid" id="featuredGrid">
+                <!-- Nike Week -->
+                <div class="board-featured-week">
+                    <div class="board-featured-header">
+                        <span class="board-featured-topic">Nike</span>
+                        <span class="board-featured-question">"What brand made you feel like you could do something you couldn't before?"</span>
+                    </div>
+                    
+                    <div class="board-featured-answers">
+                        <div class="board-answer">
+                            <p class="board-answer-text">"My first pair of Jordans in 8th grade. I wasn't a great player, but I walked into the gym different. Confidence is a weird thing—sometimes you have to borrow it from somewhere before you can make it your own."</p>
+                            <div class="board-answer-credit">
+                                <span class="board-answer-name">Marcus T.</span>
+                                <span class="board-answer-handle">@marcust_writes</span>
+                            </div>
+                        </div>
+                        
+                        <div class="board-answer">
+                            <p class="board-answer-text">"Not a brand, but a hand-me-down guitar from my uncle. He wasn't famous, but he played every weekend at the same bar for 30 years. Holding it made me feel like consistency was its own kind of success."</p>
+                            <div class="board-answer-credit">
+                                <span class="board-answer-name">Delia R.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="board-answer">
+                            <p class="board-answer-text">"A North Face jacket I bought with my first paycheck at 16. It wasn't about the brand—it was proof I could get something without asking. That feeling lasted longer than the jacket."</p>
+                            <div class="board-answer-credit">
+                                <span class="board-answer-name">James K.</span>
+                                <span class="board-answer-handle">@jamesk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sour Diesel Week -->
+                <div class="board-featured-week">
+                    <div class="board-featured-header">
+                        <span class="board-featured-topic">Sour Diesel</span>
+                        <span class="board-featured-question">"What's something with mysterious origins that became part of your daily life?"</span>
+                    </div>
+                    
+                    <div class="board-featured-answers">
+                        <div class="board-answer">
+                            <p class="board-answer-text">"My grandmother's soup recipe. No one knows where it came from—she always said 'the old country' but couldn't name a town. Every winter I make it, and every winter I wonder whose hands first stirred that pot."</p>
+                            <div class="board-answer-credit">
+                                <span class="board-answer-name">Ana M.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="board-answer">
+                            <p class="board-answer-text">"The slang my friend group uses. We've been saying the same weird phrases for 15 years. Nobody remembers who started any of them. They just... are. That's culture, I guess."</p>
+                            <div class="board-answer-credit">
+                                <span class="board-answer-name">Devon P.</span>
+                                <span class="board-answer-handle">@devonp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board Members List -->
+    <section class="section board-members-section">
+        <div class="container">
+            <h2 class="section-title">Board Members</h2>
+            <p class="board-members-intro">Contributors whose answers have been featured</p>
+            
+            <div class="board-members-grid" id="membersGrid">
+                <span class="board-member">Marcus T.</span>
+                <span class="board-member">Delia R.</span>
+                <span class="board-member">James K.</span>
+                <span class="board-member">Ana M.</span>
+                <span class="board-member">Devon P.</span>
+            </div>
+            
+            <p class="board-members-cta">Submit your answer above to join The Board.</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section board-how">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="board-how-grid">
+                <div class="board-how-item">
+                    <span class="board-how-number">01</span>
+                    <h3>Question Drops</h3>
+                    <p>Each week, a new question tied to Friday's topic. Open for submissions until the drop.</p>
+                </div>
+                <div class="board-how-item">
+                    <span class="board-how-number">02</span>
+                    <h3>Share Your Context</h3>
+                    <p>Submit your perspective. Best answers are thoughtful, specific, and add to the conversation.</p>
+                </div>
+                <div class="board-how-item">
+                    <span class="board-how-number">03</span>
+                    <h3>Get Featured</h3>
+                    <p>Selected answers appear on the site. Your name joins The Board—a growing community of context contributors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="assets/images/brand/logo-neon.png" alt="WhyItTV" class="footer-logo">
+                    <p class="footer-tagline">Context over hype. Relevance over noise.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Explore</h4>
+                        <a href="/topics.html">All Topics</a>
+                        <a href="/board.html">The Board</a>
+                        <a href="/schedule.html">Schedule</a>
+                        <a href="/about.html">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://youtube.com/@whyitTV" target="_blank" rel="noopener">YouTube</a>
+                        <a href="https://twitter.com/whyitTV" target="_blank" rel="noopener">X / Twitter</a>
+                        <a href="https://tiktok.com/@whyitTV" target="_blank" rel="noopener">TikTok</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WhyItTV. All rights reserved.</p>
+                <p class="footer-drop">New topic every Friday at 11:59 PM CT.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // The Board - Community Questions
+    (function() {
+        // ===================
+        // CONFIGURATION - Update this each week!
+        // ===================
+        const BOARD_QUESTIONS = [
+            {
+                topic: 'Levi Strauss',
+                releaseDate: '2025-01-10T23:59:00-06:00',
+                question: "What piece of clothing has shaped how people see you—or how you see yourself?",
+                context: "Levi's started as workwear and became a symbol of rebellion, identity, and self-expression. We want to hear your story."
+            },
+            {
+                topic: 'Chevrolet',
+                releaseDate: '2025-01-17T23:59:00-06:00',
+                question: "What machine or vehicle represents freedom to you—and why?",
+                context: "Chevrolet became synonymous with American identity and the open road. What does mobility mean in your life?"
+            },
+            {
+                topic: 'Coca-Cola',
+                releaseDate: '2025-01-24T23:59:00-06:00',
+                question: "What taste or smell instantly transports you somewhere else?",
+                context: "Coca-Cola built an empire on nostalgia and sensory memory. What's your version of that?"
+            },
+            {
+                topic: 'Pepsi',
+                releaseDate: '2025-01-31T23:59:00-06:00',
+                question: "When has being second place actually worked in your favor?",
+                context: "Pepsi turned challenger status into a brand identity. What's your experience with the underdog position?"
+            },
+            {
+                topic: "McDonald's",
+                releaseDate: '2025-02-07T23:59:00-06:00',
+                question: "What's a system you interact with daily that most people don't think about?",
+                context: "McDonald's isn't just a restaurant—it's a real estate and logistics system disguised as fast food. What invisible systems shape your day?"
+            }
+        ];
+
+        const STORAGE_KEY = 'whyit_board_submissions';
+
+        // ===================
+        // INITIALIZATION
+        // ===================
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentQuestion = getCurrentQuestion();
+            updateQuestionDisplay(currentQuestion);
+            initCountdown(currentQuestion);
+            initForm(currentQuestion);
+            checkExistingSubmission(currentQuestion);
+        });
+
+        function getCurrentQuestion() {
+            const now = new Date();
+            
+            // Find the current or next upcoming question
+            for (let i = 0; i < BOARD_QUESTIONS.length; i++) {
+                const q = BOARD_QUESTIONS[i];
+                const releaseDate = new Date(q.releaseDate);
+                
+                // If release date hasn't passed, this is the current question
+                if (now < releaseDate) {
+                    return q;
+                }
+            }
+            
+            // If all have passed, return the last one
+            return BOARD_QUESTIONS[BOARD_QUESTIONS.length - 1];
+        }
+
+        function updateQuestionDisplay(currentQuestion) {
+            const questionEl = document.getElementById('currentQuestion');
+            const topicEl = document.getElementById('questionTopic');
+            const contextEl = document.getElementById('questionContext');
+            
+            if (questionEl) questionEl.textContent = currentQuestion.question;
+            if (contextEl) contextEl.textContent = currentQuestion.context;
+            if (topicEl) {
+                const date = new Date(currentQuestion.releaseDate);
+                const month = date.toLocaleString('en-US', { month: 'short' });
+                const day = date.getDate();
+                topicEl.textContent = `${currentQuestion.topic} — ${month} ${day}`;
+            }
+        }
+
+        function initCountdown(currentQuestion) {
+            const countdownEl = document.getElementById('boardCountdown');
+            if (!countdownEl) return;
+
+            function update() {
+                const now = new Date();
+                const release = new Date(currentQuestion.releaseDate);
+                const diff = release - now;
+
+                if (diff <= 0) {
+                    countdownEl.textContent = 'Closed';
+                    const submitSection = document.getElementById('submitSection');
+                    if (submitSection) submitSection.style.display = 'none';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                if (days > 0) {
+                    countdownEl.textContent = `${days}d ${hours}h ${minutes}m`;
+                } else {
+                    countdownEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                }
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+
+        function initForm(currentQuestion) {
+            const form = document.getElementById('boardForm');
+            const textarea = document.getElementById('boardAnswer');
+            const charCount = document.getElementById('charCount');
+
+            if (textarea && charCount) {
+                textarea.addEventListener('input', function() {
+                    charCount.textContent = this.value.length;
+                });
+            }
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    submitAnswer(currentQuestion);
+                });
+            }
+        }
+
+        function submitAnswer(currentQuestion) {
+            const name = document.getElementById('boardName').value.trim();
+            const answer = document.getElementById('boardAnswer').value.trim();
+            const handle = document.getElementById('boardHandle').value.trim();
+
+            if (!name || !answer) return;
+
+            // Save submission
+            const submission = {
+                topic: currentQuestion.topic,
+                releaseDate: currentQuestion.releaseDate,
+                name: name,
+                answer: answer,
+                handle: handle,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const submissions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+                submissions.push(submission);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions));
+            } catch (e) {
+                console.error('Failed to save submission:', e);
+            }
+
+            // Show confirmation
+            document.getElementById('boardForm').style.display = 'none';
+            document.getElementById('boardSubmitted').style.display = 'block';
+
+            // Log for collection (in production, this would POST to a backend)
+            console.log('Board Submission:', submission);
+            
+            // Also store in a way that's easy to retrieve
+            alert('Submission recorded! Check browser console for details.\n\nName: ' + name + '\nAnswer: ' + answer.substring(0, 100) + '...');
+        }
+
+        function checkExistingSubmission(currentQuestion) {
+            try {
+                const submissions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+                const existing = submissions.find(s => s.releaseDate === currentQuestion.releaseDate);
+                
+                if (existing) {
+                    document.getElementById('boardForm').style.display = 'none';
+                    document.getElementById('boardSubmitted').style.display = 'block';
+                }
+            } catch (e) {
+                // Ignore
+            }
+        }
+
+    })();
+    </script>
+
+    <style>
+    /* The Board Styles */
+    .board-header {
+        padding: calc(var(--space-3xl) + 80px) 0 var(--space-xl);
+        text-align: center;
+        background: var(--color-bg-dark);
+    }
+
+    .board-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-neon-green);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: var(--space-md);
+        padding: var(--space-xs) var(--space-md);
+        border: 1px solid var(--color-neon-green);
+        border-radius: var(--radius-full);
+    }
+
+    .board-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+        margin-bottom: var(--space-md);
+    }
+
+    .board-subtitle {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary);
+    }
+
+    /* Question Section */
+    .board-question-section {
+        background: var(--color-bg-deep);
+    }
+
+    .board-question-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .board-question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-lg);
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .board-question-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-red);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    .board-question-topic {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+
+    .board-question {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        line-height: 1.3;
+        margin-bottom: var(--space-lg);
+        color: var(--color-text-primary);
+    }
+
+    .board-question-context {
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        margin-bottom: var(--space-xl);
+    }
+
+    .board-countdown {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+    }
+
+    .board-countdown span:last-child {
+        font-family: var(--font-display);
+        color: var(--color-red);
+        font-size: 1.125rem;
+    }
+
+    /* Submit Section */
+    .board-submit-section {
+        background: var(--color-bg-dark);
+    }
+
+    .board-submit-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .board-submit-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: var(--space-xl);
+    }
+
+    .board-form-group {
+        margin-bottom: var(--space-lg);
+    }
+
+    .board-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-input,
+    .board-textarea {
+        width: 100%;
+        background: var(--color-bg-surface);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        font-size: 1rem;
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        transition: all var(--transition-fast);
+    }
+
+    .board-textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    .board-input:focus,
+    .board-textarea:focus {
+        outline: none;
+        border-color: var(--color-neon-green);
+        box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.1);
+    }
+
+    .board-input::placeholder,
+    .board-textarea::placeholder {
+        color: var(--color-text-muted);
+    }
+
+    .board-char-count {
+        display: block;
+        text-align: right;
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        margin-top: var(--space-xs);
+    }
+
+    .board-submit-btn {
+        width: 100%;
+        padding: var(--space-md) var(--space-xl);
+    }
+
+    /* Submitted State */
+    .board-submitted {
+        text-align: center;
+        padding: var(--space-2xl);
+        background: var(--color-bg-surface);
+        border-radius: var(--radius-xl);
+    }
+
+    .board-submitted-icon {
+        font-size: 3rem;
+        color: var(--color-neon-green);
+        margin-bottom: var(--space-md);
+    }
+
+    .board-submitted h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-submitted p {
+        color: var(--color-text-muted);
+    }
+
+    /* Featured Section */
+    .board-featured-section {
+        background: var(--color-bg-deep);
+    }
+
+    .board-featured-intro {
+        text-align: center;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .board-featured-grid {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2xl);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .board-featured-week {
+        background: var(--color-bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: var(--radius-xl);
+        padding: var(--space-xl);
+    }
+
+    .board-featured-header {
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-lg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .board-featured-topic {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: var(--color-red);
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-featured-question {
+        display: block;
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        font-style: italic;
+    }
+
+    .board-featured-answers {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .board-answer {
+        padding-left: var(--space-lg);
+        border-left: 2px solid var(--color-neon-green);
+    }
+
+    .board-answer-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-answer-credit {
+        display: flex;
+        gap: var(--space-sm);
+        align-items: center;
+    }
+
+    .board-answer-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+    }
+
+    .board-answer-handle {
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+    }
+
+    /* Members Section */
+    .board-members-section {
+        background: var(--color-bg-dark);
+    }
+
+    .board-members-intro {
+        text-align: center;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-xl);
+    }
+
+    .board-members-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-sm);
+        max-width: 600px;
+        margin: 0 auto var(--space-xl);
+    }
+
+    .board-member {
+        background: var(--color-bg-surface);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+    }
+
+    .board-members-cta {
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+    }
+
+    /* How It Works */
+    .board-how {
+        background: var(--color-bg-deep);
+    }
+
+    .board-how-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .board-how-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .board-how-item {
+        text-align: center;
+    }
+
+    .board-how-number {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 3rem;
+        color: var(--color-neon-green);
+        opacity: 0.3;
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-how-item h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+    }
+
+    .board-how-item p {
+        color: var(--color-text-muted);
+        font-size: 0.9375rem;
+    }
+
+    .nav-link-active {
+        color: var(--color-neon-green) !important;
+    }
+    </style>
+</body>
+</html>
