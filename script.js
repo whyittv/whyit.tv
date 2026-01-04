@@ -1,11 +1,22 @@
 // WhyItTV - Main JavaScript
 // Context over hype. Relevance over noise.
 
+// Release schedule (11:59 PM CT Fridays)
+const RELEASE_SCHEDULE = [
+    { topic: 'sour-diesel', date: '2024-12-27T23:59:00-06:00', title: 'Sour Diesel' },
+    { topic: 'nike', date: '2025-01-03T23:59:00-06:00', title: 'Nike' },
+    { topic: 'levi-strauss', date: '2025-01-10T23:59:00-06:00', title: 'Levi Strauss' },
+    { topic: 'chevrolet', date: '2025-01-17T23:59:00-06:00', title: 'Chevrolet' },
+    { topic: 'coca-cola', date: '2025-01-24T23:59:00-06:00', title: 'Coca-Cola' },
+    { topic: 'pepsi', date: '2025-01-31T23:59:00-06:00', title: 'Pepsi' }
+];
+
 document.addEventListener('DOMContentLoaded', function() {
     initCountdown();
     initMobileNav();
     initScrollEffects();
     initInfographicLightbox();
+    initAutoUnlock();
 });
 
 // ===== Countdown Timer =====
@@ -209,5 +220,111 @@ function initInfographicLightbox() {
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+    }
+}
+
+// ===== Auto-Unlock System =====
+function initAutoUnlock() {
+    const now = new Date();
+    
+    // Find released and upcoming topics
+    const released = RELEASE_SCHEDULE.filter(t => new Date(t.date) <= now);
+    const upcoming = RELEASE_SCHEDULE.filter(t => new Date(t.date) > now);
+    const nextUp = upcoming[0];
+    
+    // Update schedule page items
+    document.querySelectorAll('.schedule-item[data-release]').forEach(item => {
+        const releaseDate = new Date(item.dataset.release);
+        const topicSlug = item.dataset.topic;
+        const isReleased = releaseDate <= now;
+        const isNext = nextUp && topicSlug === nextUp.topic;
+        
+        // Update classes
+        item.classList.remove('schedule-item-past', 'schedule-item-next', 'schedule-item-future', 'schedule-item-locked');
+        
+        if (isReleased) {
+            item.classList.add('schedule-item-past');
+            
+            // Update status badge
+            const status = item.querySelector('.schedule-status');
+            if (status) {
+                status.textContent = 'Released';
+                status.classList.remove('schedule-status-next', 'schedule-status-locked');
+            }
+            
+            // Update format checkmarks
+            item.querySelectorAll('.schedule-format').forEach(fmt => {
+                fmt.classList.remove('schedule-format-pending');
+                if (!fmt.textContent.startsWith('✓')) {
+                    fmt.textContent = '✓ ' + fmt.textContent;
+                }
+            });
+            
+            // Add watch link if not present
+            const content = item.querySelector('.schedule-content');
+            if (content && !content.querySelector('.schedule-link')) {
+                const link = document.createElement('a');
+                link.href = '/topics/' + topicSlug + '.html';
+                link.className = 'schedule-link';
+                link.textContent = 'Watch Now →';
+                content.appendChild(link);
+            }
+        } else if (isNext) {
+            item.classList.add('schedule-item-next');
+            
+            const status = item.querySelector('.schedule-status');
+            if (status) {
+                status.textContent = 'Next Drop';
+                status.classList.add('schedule-status-next');
+                status.classList.remove('schedule-status-locked');
+            }
+        } else {
+            item.classList.add('schedule-item-locked');
+            
+            const status = item.querySelector('.schedule-status');
+            if (status) {
+                status.textContent = 'Locked';
+                status.classList.add('schedule-status-locked');
+                status.classList.remove('schedule-status-next');
+            }
+        }
+    });
+    
+    // Update topics page cards
+    document.querySelectorAll('.topic-card[data-release]').forEach(card => {
+        const releaseDate = new Date(card.dataset.release);
+        const topicSlug = card.dataset.topic;
+        const isReleased = releaseDate <= now;
+        
+        if (isReleased) {
+            card.classList.add('topic-card-live');
+            card.classList.remove('topic-card-locked');
+            if (card.tagName === 'DIV') {
+                // Convert to link
+                const link = document.createElement('a');
+                link.href = '/topics/' + topicSlug + '.html';
+                link.className = card.className;
+                link.innerHTML = card.innerHTML;
+                card.parentNode.replaceChild(link, card);
+            }
+        } else {
+            card.classList.add('topic-card-locked');
+            card.classList.remove('topic-card-live');
+        }
+    });
+    
+    // Update homepage "Latest Drop" and "Coming Up" sections
+    updateHomepage(released, upcoming);
+}
+
+function updateHomepage(released, upcoming) {
+    // This function could dynamically update the homepage
+    // For now, we'll rely on manual updates for the featured content
+    // since it requires images and more complex markup
+    
+    // Update countdown to next release
+    if (upcoming.length > 0) {
+        const nextRelease = new Date(upcoming[0].date);
+        // Countdown is already handled by initCountdown()
     }
 }

@@ -58,7 +58,7 @@
         <div class="container">
             <div class="schedule-timeline">
                 <!-- Week 1 - Sour Diesel -->
-                <div class="schedule-item schedule-item-past">
+                <div class="schedule-item schedule-item-past" data-release="2024-12-27T23:59:00-06:00" data-topic="sour-diesel">
                     <div class="schedule-date">
                         <span class="schedule-day">Dec 27</span>
                         <span class="schedule-year">2024</span>
@@ -79,32 +79,34 @@
                 </div>
 
                 <!-- Week 2 - Nike -->
-                <div class="schedule-item schedule-item-next">
+                <div class="schedule-item" data-release="2025-01-03T23:59:00-06:00" data-topic="nike">
                     <div class="schedule-date">
                         <span class="schedule-day">Jan 3</span>
                         <span class="schedule-year">2025</span>
                     </div>
                     <div class="schedule-content">
-                        <span class="schedule-status schedule-status-next">Next Drop</span>
+                        <span class="schedule-status">Released</span>
                         <h2 class="schedule-topic">Nike</h2>
                         <p class="schedule-description">From a handshake deal with a Japanese shoe company to the most valuable sports brand on Earth.</p>
                         <div class="schedule-formats">
-                            <span class="schedule-format schedule-format-pending">Explainer</span>
-                            <span class="schedule-format schedule-format-pending">Debate</span>
-                            <span class="schedule-format schedule-format-pending">Critique</span>
-                            <span class="schedule-format schedule-format-pending">Deep Dive</span>
-                            <span class="schedule-format schedule-format-pending">Infographic</span>
+                            <span class="schedule-format">✓ Explainer</span>
+                            <span class="schedule-format">✓ Debate</span>
+                            <span class="schedule-format">✓ Critique</span>
+                            <span class="schedule-format">✓ Deep Dive</span>
+                            <span class="schedule-format">✓ Infographic</span>
                         </div>
+                        <a href="/topics/nike.html" class="schedule-link">Watch Now →</a>
                     </div>
                 </div>
 
                 <!-- Week 3 - Levi Strauss -->
-                <div class="schedule-item schedule-item-future">
+                <div class="schedule-item" data-release="2025-01-10T23:59:00-06:00" data-topic="levi-strauss">
                     <div class="schedule-date">
                         <span class="schedule-day">Jan 10</span>
                         <span class="schedule-year">2025</span>
                     </div>
                     <div class="schedule-content">
+                        <span class="schedule-status schedule-status-next">Next Drop</span>
                         <h2 class="schedule-topic">Levi Strauss</h2>
                         <p class="schedule-description">How workwear became counterculture became global uniform.</p>
                         <div class="schedule-formats">
@@ -118,12 +120,13 @@
                 </div>
 
                 <!-- Week 4 - Chevrolet -->
-                <div class="schedule-item schedule-item-future">
+                <div class="schedule-item" data-release="2025-01-17T23:59:00-06:00" data-topic="chevrolet">
                     <div class="schedule-date">
                         <span class="schedule-day">Jan 17</span>
                         <span class="schedule-year">2025</span>
                     </div>
                     <div class="schedule-content">
+                        <span class="schedule-status schedule-status-locked">Locked</span>
                         <h2 class="schedule-topic">Chevrolet</h2>
                         <p class="schedule-description">The brand that became synonymous with American identity.</p>
                         <div class="schedule-formats">
@@ -137,12 +140,13 @@
                 </div>
 
                 <!-- Week 5 - Coca-Cola -->
-                <div class="schedule-item schedule-item-future">
+                <div class="schedule-item" data-release="2025-01-24T23:59:00-06:00" data-topic="coca-cola">
                     <div class="schedule-date">
                         <span class="schedule-day">Jan 24</span>
                         <span class="schedule-year">2025</span>
                     </div>
                     <div class="schedule-content">
+                        <span class="schedule-status schedule-status-locked">Locked</span>
                         <h2 class="schedule-topic">Coca-Cola</h2>
                         <p class="schedule-description">The drink that became a symbol, a system, and a controversy.</p>
                         <div class="schedule-formats">
@@ -156,12 +160,13 @@
                 </div>
 
                 <!-- Week 6 - Pepsi -->
-                <div class="schedule-item schedule-item-future">
+                <div class="schedule-item" data-release="2025-01-31T23:59:00-06:00" data-topic="pepsi">
                     <div class="schedule-date">
                         <span class="schedule-day">Jan 31</span>
                         <span class="schedule-year">2025</span>
                     </div>
                     <div class="schedule-content">
+                        <span class="schedule-status schedule-status-locked">Locked</span>
                         <h2 class="schedule-topic">Pepsi</h2>
                         <p class="schedule-description">The challenger brand that shaped marketing forever.</p>
                         <div class="schedule-formats">
@@ -341,6 +346,19 @@
     
     .schedule-status-next {
         color: var(--color-red);
+    }
+    
+    .schedule-status-locked {
+        color: var(--color-text-muted);
+    }
+    
+    .schedule-item-locked {
+        opacity: 0.5;
+    }
+    
+    .schedule-item-locked::after {
+        background: var(--color-bg-card);
+        border-color: var(--color-text-muted);
     }
     
     .schedule-topic {
