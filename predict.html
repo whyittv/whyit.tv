@@ -66,7 +66,7 @@
                 <!-- Clues Section -->
                 <div class="clues-section">
                     <h2 class="clues-title">This Week's Clues</h2>
-                    <p class="clues-intro">New clue revealed each day. More clues = easier guess.</p>
+                    <p class="clues-intro">Predict the <strong>January 10th</strong> drop. New clue each day Mon–Thu.</p>
                     
                     <div class="clues-grid" id="cluesGrid">
                         <!-- Clues will be populated by JavaScript -->
@@ -205,12 +205,14 @@
             answer: 'Levi Strauss',
             acceptedAnswers: ['levi', 'levis', "levi's", 'levi strauss', 'levi-strauss', 'levis jeans', 'levi jeans'],
             releaseDate: '2025-01-10T23:59:00-06:00',
+            // Clue week starts Monday before release (Jan 6)
+            clueWeekStart: '2025-01-06T00:00:00-06:00',
             topicUrl: '/topics/levi-strauss.html',
             clues: [
-                { day: 'Monday', text: 'This brand started during a gold rush—but not for gold.', unlockDay: 1 },
-                { day: 'Tuesday', text: 'A patent from 1873 changed workwear forever.', unlockDay: 2 },
-                { day: 'Wednesday', text: 'Rebels, cowboys, and rock stars all wore it.', unlockDay: 3 },
-                { day: 'Thursday', text: 'The number 501 means something special here.', unlockDay: 4 }
+                { day: 'Monday', text: 'This brand started during a gold rush—but not for gold.', dayOffset: 0 },
+                { day: 'Tuesday', text: 'A patent from 1873 changed workwear forever.', dayOffset: 1 },
+                { day: 'Wednesday', text: 'Rebels, cowboys, and rock stars all wore it.', dayOffset: 2 },
+                { day: 'Thursday', text: 'The number 501 means something special here.', dayOffset: 3 }
             ]
         };
 
@@ -251,15 +253,18 @@
             if (!grid) return;
 
             const now = new Date();
-            const dayOfWeek = now.getDay(); // 0=Sun, 1=Mon, etc.
-            
-            // Map day of week to clue unlock (Mon=1, Tue=2, etc.)
-            // If it's after Friday (release), show all clues
             const releaseDate = new Date(CURRENT_WEEK.releaseDate);
+            const clueWeekStart = new Date(CURRENT_WEEK.clueWeekStart);
             const isRevealed = now >= releaseDate;
+            const isClueWeek = now >= clueWeekStart;
 
             grid.innerHTML = CURRENT_WEEK.clues.map((clue, index) => {
-                const isUnlocked = isRevealed || dayOfWeek >= clue.unlockDay;
+                // Calculate when this specific clue unlocks
+                const clueUnlockDate = new Date(clueWeekStart);
+                clueUnlockDate.setDate(clueUnlockDate.getDate() + clue.dayOffset);
+                
+                // Clue is unlocked if: revealed OR (in clue week AND past this clue's day)
+                const isUnlocked = isRevealed || (isClueWeek && now >= clueUnlockDate);
                 
                 return `
                     <div class="clue-card ${isUnlocked ? 'clue-unlocked' : 'clue-locked'}">
@@ -276,8 +281,40 @@
 
             function update() {
                 const now = new Date();
+                const clueWeekStart = new Date(CURRENT_WEEK.clueWeekStart);
+                
+                // If before clue week, count down to Monday
+                if (now < clueWeekStart) {
+                    const diff = clueWeekStart - now;
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    
+                    if (days > 0) {
+                        countdownEl.textContent = `${days}d ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    } else {
+                        countdownEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    }
+                    return;
+                }
+                
+                // During clue week, count to next day/clue
                 const tomorrow = new Date(now);
                 tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setHours(0, 0, 0, 0);
+                
+                const diff = tomorrow - now;
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                countdownEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            update();
+            setInterval(update, 1000);
                 tomorrow.setHours(0, 0, 0, 0);
                 
                 const diff = tomorrow - now;
