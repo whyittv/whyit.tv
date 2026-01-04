@@ -76,9 +76,8 @@
                     We want to hear your story.
                 </p>
 
-                <div class="board-countdown">
-                    <span>Submissions close in: </span>
-                    <span id="boardCountdown">--:--:--</span>
+                <div class="board-topic-link">
+                    <span id="topicLinkContainer"></span>
                 </div>
             </div>
         </div>
@@ -127,15 +126,21 @@
                     </div>
                     
                     <button type="submit" class="btn btn-primary board-submit-btn">
-                        Submit to The Board
+                        Add to The Board
                     </button>
                 </form>
-                
-                <div class="board-submitted" id="boardSubmitted" style="display: none;">
-                    <div class="board-submitted-icon">✓</div>
-                    <h3>Submitted!</h3>
-                    <p>Thanks for contributing. If your answer is selected, you'll be featured when the topic drops.</p>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Submissions -->
+    <section class="section board-community-section">
+        <div class="container">
+            <h2 class="section-title">From The Community</h2>
+            <p class="board-community-intro">What others are saying</p>
+            
+            <div class="board-community-grid" id="communitySubmissions">
+                <!-- Populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -291,30 +296,35 @@
         const BOARD_QUESTIONS = [
             {
                 topic: 'Levi Strauss',
+                slug: 'levi-strauss',
                 releaseDate: '2025-01-10T23:59:00-06:00',
                 question: "What piece of clothing has shaped how people see you—or how you see yourself?",
                 context: "Levi's started as workwear and became a symbol of rebellion, identity, and self-expression. We want to hear your story."
             },
             {
                 topic: 'Chevrolet',
+                slug: 'chevrolet',
                 releaseDate: '2025-01-17T23:59:00-06:00',
                 question: "What machine or vehicle represents freedom to you—and why?",
                 context: "Chevrolet became synonymous with American identity and the open road. What does mobility mean in your life?"
             },
             {
                 topic: 'Coca-Cola',
+                slug: 'coca-cola',
                 releaseDate: '2025-01-24T23:59:00-06:00',
                 question: "What taste or smell instantly transports you somewhere else?",
                 context: "Coca-Cola built an empire on nostalgia and sensory memory. What's your version of that?"
             },
             {
                 topic: 'Pepsi',
+                slug: 'pepsi',
                 releaseDate: '2025-01-31T23:59:00-06:00',
                 question: "When has being second place actually worked in your favor?",
                 context: "Pepsi turned challenger status into a brand identity. What's your experience with the underdog position?"
             },
             {
                 topic: "McDonald's",
+                slug: 'mcdonalds',
                 releaseDate: '2025-02-07T23:59:00-06:00',
                 question: "What's a system you interact with daily that most people don't think about?",
                 context: "McDonald's isn't just a restaurant—it's a real estate and logistics system disguised as fast food. What invisible systems shape your day?"
@@ -329,9 +339,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             const currentQuestion = getCurrentQuestion();
             updateQuestionDisplay(currentQuestion);
-            initCountdown(currentQuestion);
             initForm(currentQuestion);
-            checkExistingSubmission(currentQuestion);
+            displayCommunitySubmissions(currentQuestion);
         });
 
         function getCurrentQuestion() {
@@ -356,6 +365,7 @@
             const questionEl = document.getElementById('currentQuestion');
             const topicEl = document.getElementById('questionTopic');
             const contextEl = document.getElementById('questionContext');
+            const linkContainer = document.getElementById('topicLinkContainer');
             
             if (questionEl) questionEl.textContent = currentQuestion.question;
             if (contextEl) contextEl.textContent = currentQuestion.context;
@@ -365,38 +375,15 @@
                 const day = date.getDate();
                 topicEl.textContent = `${currentQuestion.topic} — ${month} ${day}`;
             }
-        }
-
-        function initCountdown(currentQuestion) {
-            const countdownEl = document.getElementById('boardCountdown');
-            if (!countdownEl) return;
-
-            function update() {
+            
+            // Show link to topic if released
+            if (linkContainer) {
                 const now = new Date();
-                const release = new Date(currentQuestion.releaseDate);
-                const diff = release - now;
-
-                if (diff <= 0) {
-                    countdownEl.textContent = 'Closed';
-                    const submitSection = document.getElementById('submitSection');
-                    if (submitSection) submitSection.style.display = 'none';
-                    return;
-                }
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                if (days > 0) {
-                    countdownEl.textContent = `${days}d ${hours}h ${minutes}m`;
-                } else {
-                    countdownEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                const releaseDate = new Date(currentQuestion.releaseDate);
+                if (now >= releaseDate) {
+                    linkContainer.innerHTML = `<a href="/topics/${currentQuestion.slug}.html" class="board-topic-btn">Watch the ${currentQuestion.topic} Episode →</a>`;
                 }
             }
-
-            update();
-            setInterval(update, 1000);
         }
 
         function initForm(currentQuestion) {
@@ -443,29 +430,58 @@
                 console.error('Failed to save submission:', e);
             }
 
-            // Show confirmation
-            document.getElementById('boardForm').style.display = 'none';
-            document.getElementById('boardSubmitted').style.display = 'block';
-
-            // Log for collection (in production, this would POST to a backend)
-            console.log('Board Submission:', submission);
+            // Clear form and show the new submission
+            document.getElementById('boardName').value = '';
+            document.getElementById('boardAnswer').value = '';
+            document.getElementById('boardHandle').value = '';
+            document.getElementById('charCount').textContent = '0';
             
-            // Also store in a way that's easy to retrieve
-            alert('Submission recorded! Check browser console for details.\n\nName: ' + name + '\nAnswer: ' + answer.substring(0, 100) + '...');
+            // Refresh the community submissions display
+            displayCommunitySubmissions(currentQuestion);
+            
+            // Scroll to submissions
+            document.getElementById('communitySubmissions').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function checkExistingSubmission(currentQuestion) {
+        function displayCommunitySubmissions(currentQuestion) {
+            const container = document.getElementById('communitySubmissions');
+            if (!container) return;
+
             try {
-                const submissions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-                const existing = submissions.find(s => s.releaseDate === currentQuestion.releaseDate);
+                const allSubmissions = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+                const topicSubmissions = allSubmissions.filter(s => s.releaseDate === currentQuestion.releaseDate);
                 
-                if (existing) {
-                    document.getElementById('boardForm').style.display = 'none';
-                    document.getElementById('boardSubmitted').style.display = 'block';
+                if (topicSubmissions.length === 0) {
+                    container.innerHTML = `
+                        <div class="community-empty">
+                            <p>No submissions yet. Be the first to share your perspective!</p>
+                        </div>
+                    `;
+                    return;
                 }
+
+                // Sort by most recent first
+                topicSubmissions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                container.innerHTML = topicSubmissions.map(sub => `
+                    <div class="community-answer">
+                        <p class="community-answer-text">"${escapeHtml(sub.answer)}"</p>
+                        <div class="community-answer-credit">
+                            <span class="community-answer-name">${escapeHtml(sub.name)}</span>
+                            ${sub.handle ? `<span class="community-answer-handle">${escapeHtml(sub.handle)}</span>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+                
             } catch (e) {
-                // Ignore
+                container.innerHTML = '<div class="community-empty"><p>Unable to load submissions.</p></div>';
             }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
     })();
@@ -549,15 +565,22 @@
         margin-bottom: var(--space-xl);
     }
 
-    .board-countdown {
-        font-size: 0.875rem;
-        color: var(--color-text-muted);
+    .board-topic-link {
+        margin-top: var(--space-lg);
     }
 
-    .board-countdown span:last-child {
+    .board-topic-btn {
+        display: inline-block;
         font-family: var(--font-display);
+        font-size: 1rem;
         color: var(--color-red);
-        font-size: 1.125rem;
+        letter-spacing: 0.05em;
+        transition: all var(--transition-fast);
+    }
+
+    .board-topic-btn:hover {
+        color: var(--color-red-bright);
+        text-shadow: 0 0 10px var(--color-red-glow);
     }
 
     /* Submit Section */
@@ -631,26 +654,63 @@
         padding: var(--space-md) var(--space-xl);
     }
 
-    /* Submitted State */
-    .board-submitted {
+    /* Community Submissions Section */
+    .board-community-section {
+        background: var(--color-bg-deep);
+    }
+
+    .board-community-intro {
+        text-align: center;
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-2xl);
+    }
+
+    .board-community-grid {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .community-answer {
+        background: var(--color-bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        border-left: 3px solid var(--color-neon-green);
+    }
+
+    .community-answer-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--color-text-primary);
+        margin-bottom: var(--space-md);
+        font-style: italic;
+    }
+
+    .community-answer-credit {
+        display: flex;
+        gap: var(--space-sm);
+        align-items: center;
+    }
+
+    .community-answer-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--color-text-secondary);
+    }
+
+    .community-answer-handle {
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+    }
+
+    .community-empty {
         text-align: center;
         padding: var(--space-2xl);
-        background: var(--color-bg-surface);
+        background: var(--color-bg-card);
         border-radius: var(--radius-xl);
-    }
-
-    .board-submitted-icon {
-        font-size: 3rem;
-        color: var(--color-neon-green);
-        margin-bottom: var(--space-md);
-    }
-
-    .board-submitted h3 {
-        font-size: 1.5rem;
-        margin-bottom: var(--space-sm);
-    }
-
-    .board-submitted p {
         color: var(--color-text-muted);
     }
 
