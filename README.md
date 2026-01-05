@@ -1,81 +1,63 @@
-# WhyItTV Website
+# Valentine's Day Topic - WhyItTV Deployment
 
-**Context over hype. Relevance over noise.**
+## Release Date
+**Friday, February 13, 2026 at 11:59 PM CT**
+(Drops night before Valentine's Day - Saturday Feb 14)
 
-Official website for WhyItTV - a story-driven educational series exploring influential brands, ideas, and systems.
+## Files Included
 
-## 🚀 Quick Deploy to Cloudflare Pages
-
-### Option 1: Upload directly (Easiest)
-1. Go to your Cloudflare Dashboard → Workers & Pages
-2. Click "Create application" → "Pages" → "Upload assets"
-3. Name your project: `whyit-tv`
-4. Upload all files from this folder
-5. Deploy!
-
-### Option 2: Connect via GitHub (Recommended for updates)
-1. Push this repo to GitHub
-2. Go to Cloudflare Dashboard → Workers & Pages
-3. Click "Create application" → "Pages" → "Connect to Git"
-4. Select your `whyit.tv` repository
-5. Build settings:
-   - Build command: (leave empty)
-   - Build output directory: `/`
-6. Deploy!
-
-## 📁 File Structure
-
+### New Files to Add:
 ```
-whyit.tv/
-├── index.html          # Homepage
-├── about.html          # About/Mission page
-├── styles.css          # Main stylesheet
-├── topic.css           # Topic page styles
-├── script.js           # JavaScript (countdown, nav)
-├── assets/
-│   └── images/
-│       ├── logo-neon.png
-│       ├── logo-clean.png
-│       └── topics/     # Topic images go here
-└── topics/
-    └── sour-diesel.html  # Topic hub template
+topics/valentines-day.html          <- Full topic page
+assets/images/topics/valentines-day/
+├── hero.png                        <- Main logo (fiery heart)
+├── critique.png                    <- The Critique thumbnail
+├── debate.png                      <- The Debate thumbnail
+├── deep-dive.png                   <- The Deep Dive thumbnail
+├── infographic-system.png          <- Infographic v1 (fiery/stylized)
+└── infographic-map.png             <- Infographic v2 (system map)
 ```
 
-## 🔗 Connect Your Domain
+### Files to Update:
 
-After deploying:
-1. Go to your Pages project → Custom domains
-2. Add `whyit.tv`
-3. Cloudflare will handle DNS automatically (since domain is on Cloudflare)
+#### 1. script.js - Add to RELEASE_SCHEDULE array:
+```javascript
+{ topic: 'valentines-day', date: '2026-02-13T23:59:00-06:00', title: "Valentine's Day" },
+```
+Insert at the appropriate position in your schedule.
 
-## 📝 Adding New Topics
+#### 2. schedule.html - Add schedule entry:
+See SCHEDULE_HTML_SNIPPET.html for the exact markup.
+Adjust the schedule-number based on position.
 
-1. Copy `topics/sour-diesel.html` as a template
-2. Update the content, meta tags, and schema.org data
-3. Add images to `assets/images/topics/`
-4. Update homepage to feature new topic
-5. Push changes (auto-deploys if connected to GitHub)
+#### 3. topics.html - Add topic card:
+See TOPICS_HTML_SNIPPET.html for the exact markup.
 
-## 🎯 LLMEO Optimization
+#### 4. board.html (optional) - Add Board question:
+```javascript
+{
+    topic: 'valentines-day',
+    releaseDate: '2026-02-13T23:59:00-06:00',
+    question: "What ritual or tradition—romantic or otherwise—do you participate in even though you're not sure why?",
+    topicTitle: "Valentine's Day",
+    topicUrl: '/topics/valentines-day.html'
+}
+```
 
-Each topic page includes:
-- Schema.org Article markup
-- FAQ schema for common questions
-- Semantic HTML structure
-- Keyword-optimized content
-- Structured data for AI crawlers
+## Brand Colors Used
+- Primary: #e63946 (warm red)
+- Secondary: #f4a261 (gold/amber)
+- Glow: rgba(230, 57, 70, 0.4)
 
-## 🔧 Future Enhancements
+## Notes
+- This is a special "event" topic inserted for the Valentine's Day holiday
+- Category: "Cultural Systems" (not "Brands" like American Icons series)
+- Two infographics included (both display on page)
+- Explainer thumbnail uses hero image (YouTube auto-generates from video)
 
-- [ ] YouTube API integration for auto video embeds
-- [ ] Topics index page with filtering
-- [ ] Search functionality
-- [ ] AI-powered tools (topic explorer, etc.)
-- [ ] Newsletter signup
-- [ ] Comments/community features
-
----
-
-**New topic every Friday at midnight.**
-
-@whyitTV on YouTube, X, TikTok
+## After Release
+Update video links in valentines-day.html once YouTube uploads complete:
+- Explainer: href="#" -> href="https://youtube.com/watch?v=XXXXX"
+- Debate: href="#" -> href="https://youtube.com/watch?v=XXXXX"
+- Critique: href="#" -> href="https://youtube.com/watch?v=XXXXX"
+- Deep Dive: href="#" -> href="https://youtube.com/watch?v=XXXXX"
