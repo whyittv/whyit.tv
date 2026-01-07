@@ -3,13 +3,13 @@
 
 // Release schedule (11:59 PM CT Fridays)
 const RELEASE_SCHEDULE = [
-    { topic: 'sour-diesel', date: '2024-12-27T23:59:00-06:00', title: 'Sour Diesel' },
-    { topic: 'nike', date: '2025-01-03T23:59:00-06:00', title: 'Nike' },
-    { topic: 'levi-strauss', date: '2025-01-10T23:59:00-06:00', title: 'Levi Strauss' },
-    { topic: 'chevrolet', date: '2025-01-17T23:59:00-06:00', title: 'Chevrolet' },
-    { topic: 'coca-cola', date: '2025-01-24T23:59:00-06:00', title: 'Coca-Cola' },
-    { topic: 'pepsi', date: '2025-01-31T23:59:00-06:00', title: 'Pepsi' },
-    { topic: 'mcdonalds', date: '2025-02-07T23:59:00-06:00', title: "McDonald's" },
+    { topic: 'sour-diesel', date: '2025-12-27T23:59:00-06:00', title: 'Sour Diesel' },
+    { topic: 'nike', date: '2026-01-03T23:59:00-06:00', title: 'Nike' },
+    { topic: 'levi-strauss', date: '2026-01-10T23:59:00-06:00', title: 'Levi Strauss' },
+    { topic: 'chevrolet', date: '2026-01-17T23:59:00-06:00', title: 'Chevrolet' },
+    { topic: 'coca-cola', date: '2026-01-24T23:59:00-06:00', title: 'Coca-Cola' },
+    { topic: 'pepsi', date: '2026-01-31T23:59:00-06:00', title: 'Pepsi' },
+    { topic: 'mcdonalds', date: '2026-02-07T23:59:00-06:00', title: "McDonald's" },
     { topic: 'valentines-day', date: '2026-02-13T23:59:00-06:00', title: "Valentine's Day" },
     { topic: 'harley-davidson', date: '2026-02-20T23:59:00-06:00', title: "Harley-Davidson" }
 ];
