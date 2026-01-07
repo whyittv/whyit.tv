@@ -335,6 +335,13 @@
                 releaseDate: '2026-02-13T23:59:00-06:00',
                 question: "What ritual or tradition—romantic or otherwise—do you participate in even though you're not sure why?",
                 context: "Valentine's Day evolved from ancient fertility rites to a $27.5 billion commercial system. We're curious about the rituals you've inherited or adopted."
+            },
+            {
+                topic: "Harley-Davidson",
+                slug: 'harley-davidson',
+                releaseDate: '2026-02-20T23:59:00-06:00',
+                question: "What does freedom mean to you—and has it changed as you've gotten older?",
+                context: "Harley-Davidson built an empire on the myth of freedom and rebellion. But what does that actually look like in your life?"
             }
         ];
 
@@ -353,19 +360,25 @@
         function getCurrentQuestion() {
             const now = new Date();
             
-            // Find the current or next upcoming question
+            // Find the most recently released topic, or the next upcoming one if none released yet
+            let mostRecentReleased = null;
+            let nextUpcoming = null;
+            
             for (let i = 0; i < BOARD_QUESTIONS.length; i++) {
                 const q = BOARD_QUESTIONS[i];
                 const releaseDate = new Date(q.releaseDate);
                 
-                // If release date hasn't passed, this is the current question
-                if (now < releaseDate) {
-                    return q;
+                if (now >= releaseDate) {
+                    // This topic has been released - keep track of most recent
+                    mostRecentReleased = q;
+                } else if (!nextUpcoming) {
+                    // This is the next upcoming topic
+                    nextUpcoming = q;
                 }
             }
             
-            // If all have passed, return the last one
-            return BOARD_QUESTIONS[BOARD_QUESTIONS.length - 1];
+            // Return the most recently released topic's question, or next upcoming if none released
+            return mostRecentReleased || nextUpcoming || BOARD_QUESTIONS[BOARD_QUESTIONS.length - 1];
         }
 
         function updateQuestionDisplay(currentQuestion) {
