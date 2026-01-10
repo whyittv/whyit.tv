@@ -12,7 +12,8 @@ const RELEASE_SCHEDULE = [
     { topic: 'mcdonalds', date: '2026-02-07T23:59:00-06:00', title: "McDonald's" },
     { topic: 'valentines-day', date: '2026-02-13T23:59:00-06:00', title: "Valentine's Day" },
     { topic: 'harley-davidson', date: '2026-02-20T23:59:00-06:00', title: "Harley-Davidson" },
-    { topic: 'ford', date: '2026-02-27T23:59:00-06:00', title: "Ford" }
+    { topic: 'ford', date: '2026-02-27T23:59:00-06:00', title: "Ford" },
+    { topic: 'lego', date: '2026-03-06T23:59:00-06:00', title: "LEGO" }
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
